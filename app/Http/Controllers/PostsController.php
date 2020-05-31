@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Post;
 
 class PostsController extends Controller
@@ -39,12 +40,12 @@ class PostsController extends Controller
     {
         $post = new Post;
 
-        $url = $request->file('image')->store('public');
+        $path = $request->file('image')->store('images','public');
 
         $post->title = $request->title;
         $post->status = $request->status;
         $post->content = $request->content;
-        $post->image = $url;
+        $post->image = Storage::url($path);
         $post->save();
 
         return redirect()->route('home');
@@ -91,9 +92,9 @@ class PostsController extends Controller
         $post->status = $request->status;
         $post->content = $request->content;
 
-        if ($request->hasFile('photo')) {
-            $url = $request->file('image')->store('public');
-            $post->image = $url;
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('images','public');
+            $post->image = Storage::url($path);
         }
 
         $post->update();

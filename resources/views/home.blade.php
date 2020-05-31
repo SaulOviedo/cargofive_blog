@@ -34,6 +34,11 @@
 
         	<div class="collapse navbar-collapse">
         		<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a href="{{ route('home') }}">
+							<i class="material-icons">dashboard</i> DASHBOARD
+						</a>
+					</li>
     				<li>
 						<a href="{{ route('create_post_path') }}">
 							<i class="material-icons">note_add</i> NUEVO POST

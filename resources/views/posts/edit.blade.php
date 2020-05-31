@@ -34,6 +34,11 @@
 
         	<div class="collapse navbar-collapse">
         		<ul class="nav navbar-nav navbar-right">
+                    <li>
+						<a href="{{ route('home') }}">
+							<i class="material-icons">dashboard</i> DASHBOARD
+						</a>
+					</li>
     				<li>
 						<a href="{{ route('create_post_path') }}">
 							<i class="material-icons">note_add</i> NUEVO POST
@@ -58,13 +63,13 @@
 		<div class="container" style="margin-top:8rem;padding:30px 15px;">
             <div class="row">
                 <div class="col-xs-12">
-                    <form class="mt-4" action="{{ route('update_post_path') }}" method="POST" enctype="multipart/form-data" value="{{$post->title}}">
+                    <form class="mt-4" action="{{ route('update_post_path', ['id' => $post->id]) }}" method="POST" enctype="multipart/form-data" value="{{$post->title}}">
                         @csrf
                         @method('PUT')
                         <div class="row">
                             <div class="col-md-8">
                                 <div class="form-group">
-                                    <input class="form-control" id="title" name="title" placeholder="Título" value="{{$post->content}}" required>
+                                    <input class="form-control" id="title" name="title" placeholder="Título" value="{{$post->title}}" required>
                                 </div>
                             </div>
                             <div class="col-md-4">

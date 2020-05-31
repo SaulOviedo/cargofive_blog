@@ -34,6 +34,12 @@
 
         	<div class="collapse navbar-collapse">
         		<ul class="nav navbar-nav navbar-right">
+                    <li>
+						<a href="{{ route('home') }}">
+							<i class="material-icons">dashboard</i> DASHBOARD
+						</a>
+					</li>
+
     				<li>
 						<a href="{{ route('create_post_path') }}">
 							<i class="material-icons">note_add</i> NUEVO POST
@@ -64,7 +70,7 @@
                         <div class="row">
                             <div class="col-md-8">
                                 <div class="form-group">
-                                    <input class="form-control" id="title" name="title" placeholder="Título">
+                                    <input class="form-control" id="title" name="title" placeholder="Título" required>
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -84,7 +90,7 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group form-file-upload">
-                                    <input type="file" id="image" name="image">
+                                    <input type="file" id="image" name="image" required>
                                     <div class="input-group">
                                         <input type="text" readonly="" class="form-control" placeholder="Imagen de portada">
                                         <span class="input-group-btn input-group-s">

@@ -30,7 +30,33 @@
 		            <span class="icon-bar"></span>
         		</button>
         		<a class="navbar-brand" href="{{ url('/') }}">{{ config('app.name', 'Laravel') }}</a>
+			</div>
+			@auth
+			<div class="collapse navbar-collapse">
+        		<ul class="nav navbar-nav navbar-right">
+                    <li>
+						<a href="{{ route('home') }}">
+							<i class="material-icons">dashboard</i> DASHBOARD
+						</a>
+					</li>
+    				<li>
+						<a href="{{ route('create_post_path') }}">
+							<i class="material-icons">note_add</i> NUEVO POST
+						</a>
+					</li>
+
+					<li>
+						<a href="{{ route('logout') }}" class="btn btn-white btn-simple" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+							<i class="material-icons">exit_to_app</i> CERRAR SESIÓN
+						</a>
+					</li>
+
+					<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+							@csrf
+					</form>
+        		</ul>
         	</div>
+			@endauth
     	</div>
     </nav>
 
